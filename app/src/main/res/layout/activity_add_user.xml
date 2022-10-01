@@ -89,12 +89,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Ingrese una fecha..."
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
+        android:inputType="date"
+        android:hint="DD/MM/YYYY"
+        android:focusable="false"
+        android:clickable="true"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/barrierNuevo" />
+        app:layout_constraintStart_toEndOf="@+id/barrierNuevo"/>
 
     <Button
         android:id="@+id/btnGuardar"

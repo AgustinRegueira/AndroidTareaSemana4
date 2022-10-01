@@ -2,11 +2,14 @@ package edu.utec.tareasemana4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -26,6 +29,21 @@ public class AddUserActivity extends AppCompatActivity {
         editNuevoApellido = findViewById(R.id.editNuevoApellido);
         comboNuevoRol = findViewById(R.id.comboNuevoRol);
         editNuevaFecha = findViewById(R.id.editNuevaFecha);
+
+        editNuevaFecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        // +1 because January is zero
+                        final String selectedDate = day + " / " + (month+1) + " / " + year;
+                        editNuevaFecha.setText(selectedDate);
+                    }
+                });
+                newFragment.show(getSupportFragmentManager(), "datePicker");
+            }
+        });
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
