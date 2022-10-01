@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TareaSemana4</string>
+    <string name="add_user">Agregar un usuario</string>
+    <string name="delete_all">Eliminar todos los usuarios</string>
+    <string-array name="roles">
+        <item>Administrador</item>
+        <item>Investigador</item>
+        <item>Aficionado</item>
+    </string-array>
+</resources>
